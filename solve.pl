@@ -50,6 +50,8 @@ sub parse_puzzle {
     \%result;
 }
 
+### THESE FUNCTIONS ARE MEANT TO BE CALLED WITHIN SCRIPT FILES ###
+
 # puzzle_facts($string)
 sub puzzle_facts {
     my $string = shift;
@@ -64,6 +66,18 @@ sub puzzle_facts {
         }
     }
 }
+
+# thermo(@chain)
+sub thermo {
+    my @chain = @_;
+    for my $i (0..(@chain-2)) {
+        my $pos1 = $chain[$i];
+        my $pos2 = $chain[$i + 1];
+        say ":- pos(c($pos1), U), pos(c($pos2), V), V <= U.";
+    }
+}
+
+### END SCRIPT API ###
 
 my $path = dirname $0;
 
