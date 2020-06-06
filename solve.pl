@@ -97,9 +97,12 @@ my $code;
 $code .= $_ while <$infh>;
 close($infh);
 
-select $tmpfh;
-eval $code;
-select STDOUT;
+{
+    no warnings 'qw';
+    select $tmpfh;
+    eval $code;
+    select STDOUT;
+}
 
 $tmpfh->flush();
 
