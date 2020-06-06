@@ -13,5 +13,7 @@ puzzle_facts <<"HERE";
 HERE
 
 # Try commenting this line out and running it. You should get two
-# solutions. With this line, one of them is made invalid.
+# solutions, with 9's and 2's interchanged. This line specifies that
+# 8,5 must be less than 9,5, which invalidates one of the two
+# solutions.
 thermo qw(8,5 9,5);

@@ -18,6 +18,8 @@ ___ ___ ___
 ___ ___ ___
 HERE
 
+# We specify each thermometer here, starting from the bulb and moving
+# to the "larger" positions.
 thermo qw(5,1 4,1);
 thermo qw(1,3 2,3);
 thermo qw(7,2 7,1 8,1 9,1);
