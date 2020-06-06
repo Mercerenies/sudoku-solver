@@ -77,6 +77,14 @@ sub thermo {
     }
 }
 
+# partial_info($pos, @args)
+sub partial_info {
+    local $" = ', ';
+    my $pos = shift;
+    my @args = @_;
+    say qq(@{[map { "V = $_" } @args]} :- pos(c($pos), V).);
+}
+
 ### END SCRIPT API ###
 
 my $path = dirname $0;
@@ -101,6 +109,7 @@ close($infh);
     no warnings 'qw';
     select $tmpfh;
     eval $code;
+    die $@ if $@;
     select STDOUT;
 }
 
