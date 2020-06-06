@@ -104,4 +104,6 @@ while (<$outfh>) {
 close($tmpfh);
 cleanup();
 
-`rm $tmpfile`; # Perl doesn't seem to want to do this itself. :(
+END {
+    `rm $tmpfile`; # Perl doesn't seem to want to do this itself. :(
+}
